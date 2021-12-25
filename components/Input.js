@@ -6,6 +6,7 @@ import {
   XIcon,
 } from "@heroicons/react/solid";
 import React, { useState, useRef } from "react";
+import { useSession } from "next-auth/react";
 import "emoji-mart/css/emoji-mart.css";
 import { Picker } from "emoji-mart";
 import { db, storage } from "../firebase";
@@ -18,6 +19,7 @@ import {
 } from "@firebase/firestore";
 import { getDownloadURL, ref, uploadString } from "@firebase/storage";
 function Input() {
+  const {data: session} = useSession();
   const [input, setinput] = useState("");
   const [selectedFile, setselectedFile] = useState(null);
   const [showEmojis, setShowEmojis] = useState(false);
@@ -38,10 +40,10 @@ function Input() {
     if (loading) return;
     setloading(true);
     const docRef = await addDoc(collection(db, "posts"), {
-      // id: session.user.uid,
-      // username: session.user.name,
-      // userImg: session.user.image,
-      // tag: session.user.tag,
+      id: session.user.uid,
+      username: session.user.name,
+      userImg: session.user.image,
+      tag: session.user.tag,
       text: input,
       timestamp: serverTimestamp(),
     });
@@ -74,7 +76,7 @@ function Input() {
       loading && "opacity-60"
     }`}>
       <img
-        src="https://lh3.googleusercontent.com/ogw/ADea4I5yGnCyy6ml7tewZzPy3qn62-DRBO7qLl10AKubkw=s83-c-mo"
+        src={session.user.image}
         className="h-11 w-11 rounded-full cursor-pointer"
       />
       

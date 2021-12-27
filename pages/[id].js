@@ -12,7 +12,7 @@ import {
   import { modalState } from "../atoms/modalAtom";
   import Modal from "../components/Modal";
   import Sidebar from "../components/Sidebar";
-//   import Widgets from "../components/Widgets";
+  import Widgets from "../components/Widgets";
   import Post from "../components/Post";
   import { db } from "../firebase";
   import { ArrowLeftIcon } from "@heroicons/react/solid";
@@ -74,7 +74,7 @@ function PostPage() {
         )}
         </div>
         
-          {/*widget*/}
+          {/* <Widgets trendingResults={trendingResults} followResults={followResults}/> */}
          {isOpen && <Modal/>} 
         </main>
       </div>

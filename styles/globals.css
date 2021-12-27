@@ -32,4 +32,7 @@ a {
   .icon{
     @apply cursor-pointer w-9 h-9 hover:bg-[#1d9bf0] hover:bg-opacity-10 flex justify-center items-center rounded-full ease-out
   }
+  .tag {
+    @apply text-[#1d9bf0] text-sm font-normal hover:underline cursor-pointer
+  }
 }

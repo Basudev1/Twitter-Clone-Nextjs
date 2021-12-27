@@ -9,6 +9,7 @@ import styles from '../styles/Home.module.css'
 import { useRecoilState } from 'recoil'
 import { modalState, postIdState } from "../atoms/modalAtom";
 import { getProviders, getSession, useSession } from "next-auth/react";
+import Widgets from '../components/Widgets'
 
 export default function Home({trendingResults, followResults, providers}) {
   const {data: session} = useSession();
@@ -26,7 +27,7 @@ export default function Home({trendingResults, followResults, providers}) {
         <Sidebar/>
         <Feed/>
         {/* {session.user.name} */}
-        {/*widget*/}
+        <Widgets trendingResults={trendingResults} followResults={followResults}/>
        {isOpen && <Modal/>} 
        {/* <Modal/> */}
       </main>

@@ -83,7 +83,7 @@ function Post({ id, post, postPage }) {
         <div className={`flex ${!postPage && "justify-between"}`}>
           {postPage && (
             <img
-              src={post.userImg}
+              src={post?.userImg}
               alt="Profile Pic"
               className="h-11 w-11 rounded-full mr-4"
             />

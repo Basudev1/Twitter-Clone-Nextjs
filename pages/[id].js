@@ -33,6 +33,7 @@ function PostPage() {
       }),
     [db]
   );
+
   useEffect(
     () =>
       onSnapshot(

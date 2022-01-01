@@ -11,6 +11,7 @@ import {
   import { useRecoilState } from "recoil";
   import { modalState } from "../atoms/modalAtom";
   import Modal from "../components/Modal";
+  import Login from "../components/Login";
   import Sidebar from "../components/Sidebar";
   import Widgets from "../components/Widgets";
   import Post from "../components/Post";
@@ -31,7 +32,7 @@ function PostPage() {
       onSnapshot(doc(db, "posts", id), (snapshot) => {
         setPost(snapshot.data());
       }),
-    [db]
+    [db,id]
   );
 
   useEffect(
@@ -50,7 +51,7 @@ function PostPage() {
     return (
         <div className=''>
         <Head>
-          <title>{post?.username} on Twitter: "{post?.text}"</title>
+          <title>{post?.username} on Twitter: &quot;{post?.text}&quot;</title>
           <meta name="description" content="Twitter Clone By Basudev" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
